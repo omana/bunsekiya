@@ -1,0 +1,37 @@
+.column_ctnt{
+	font-size: 16px;
+/*	border-top: 1px dotted #333333; */
+	border-bottom: 1px dotted #333333;
+	margin-right:20px;
+	margin-left:20px;
+}
+
+.column_ctnt p{
+	padding-bottom: 10px;
+	font-size: 16px;
+}
+
+#rgst_cnfrm{
+	font-size: 16px;
+}
+
+.cnfrm_txt{
+	border-bottom: 1px dotted #000000;
+	margin-right:20px;
+	margin-left:20px;
+	padding-bottom: 10px;
+}
+
+#inquerysbmt{
+	margin-right:20px;
+	margin-left:20px;
+}
+
+.text_form{
+	height: 25px;
+}
+
+#subsite_ctnt p{
+	font-size: 14px;
+}
+

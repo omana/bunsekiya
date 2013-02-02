@@ -1,0 +1,285 @@
+@charset "utf-8";
+/*default*/
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+address,
+code,
+em,
+span.strong,
+img,
+q,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+	padding: 0;
+	margin: 0;
+	font-style: normal;
+	font-weight: normal;
+}
+/*IEのボーダー対応*/
+img{
+ border-style:none;
+}
+
+body{
+	font-family: メイリオ, Meiryo, Osaka, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	background-color: white;
+}
+
+/*html layout*/
+
+#wrapper{
+	min-width: 960px;
+	background-image: url(20121017img_layout/inner_background_image.jpg);
+	background-position: center top;
+	background-color: #111111;
+	background-repeat: repeat-x;
+}
+
+#inner_wrapper{
+	width: 960px;
+	margin: 0 auto;
+	text-align: left;
+}
+/*headerのレイアウト*/
+#header{
+	overflow: hidden;
+	position: relative;
+	z-index: 2;
+}
+
+#header h1{
+	font-size: 10px;
+	text-align: right;
+	background-image: url(20121017img_layout/header.png);
+}
+
+#header #logo{
+	float:left;
+	margin-left: 51px;
+
+}
+
+#header #cpnyinfo li{
+	list-style-type: none;
+	display: inline
+}
+
+#header #cpnyinfo{
+	margin-top: 10px;
+ 	float: right;
+ 	text-align: right;
+}
+
+#navi {
+	width:920px;
+	height:48px;
+	margin-left: 20px;
+	margin-right: 20px;
+	background-image:url(20121017img_layout/navi_background.jpg);
+	color: #687956;
+	position: relative;
+	top: -90px;
+
+}
+
+#navi ul{
+	padding-top: 15px;
+	padding-left: 100px;
+}
+
+#navi li{
+	display:inline;
+	list-style-type: none;
+	z-index: 2;
+	position: relative;
+}
+
+#navi a{
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+#article{
+	margin-left: 20px;
+	margin-right: 20px;
+	width:920px;
+	overflow: hidden;
+	position: relative;
+	top: -90px;
+}
+
+#article #slider{
+	pointer: cursor;
+
+}
+
+#slider{
+	width :920px;
+	height: 360px;
+}
+
+/*main content*/
+
+#mnctnt{
+	margin-top: 10px;
+}
+
+#newInfomation{
+	width: 400px;
+	height: 420px;
+	float: left;
+}
+
+#newInfomation h2{
+	background-image:url(20121017img_layout/navi_background.jpg);
+	height: 40px;
+}
+
+#newInfomation h2 img{
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+#newscntnt{
+	background-image:url(20121017img_layout/byoubu.png);
+	height: 380px;
+}
+
+#newscntnt p{
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#qtlist{
+margin-left: 10px;
+	width: 300px;
+	height: 420px;
+	float: left;
+}
+
+#qtlist h2{
+	background-image:url(20121017img_layout/navi_background.jpg);
+	height: 40px;
+}
+
+#qtlist h2 img{
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+#qtcntnt{
+	background-image:url(20121017img_layout/byoubu.png);
+	height: 380px;
+
+}
+
+#qtcntnt p{
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#stsrbanner{
+	margin-left: 10px;
+	height: 200px;
+	width: 200px;
+	float:right;
+}
+
+#stsrbanner h2{
+	background-image:url(20121017img_layout/navi_background.jpg);
+	height: 35px;
+	padding-top: 5px;
+}
+
+#wkcntnt{
+	background-image:url(20121017img_layout/byoubu.png);
+	height: 140px;
+
+}
+#wkcntnt p{
+ 	
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#red{
+	color: red;
+	font-size: 20px;
+}
+
+.ad_bnr{
+	width:200px;
+	height:80px;
+	float: right;
+}
+
+
+/*footer*/
+#footer{
+	min-width: 960px;
+	background-image:url(20121017img_layout/footer_background.png);
+}
+
+#footer #inner_footer{
+	width: 960px;
+	height: 84.5px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#footer #inner_footer ul{
+	padding-top: 30px;
+}
+
+#footer #inner_footer li{
+	display:inline;
+	list-style-type: none;
+	float: left;
+}
+
+#footer #inner_footer li a{
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+#footer #inner_footer address{
+	float: right;
+}
+

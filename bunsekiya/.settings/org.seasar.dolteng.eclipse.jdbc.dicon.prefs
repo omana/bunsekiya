@@ -1,0 +1,8 @@
+Charset=UTF-8
+ConnectionName=jdbc.dicon
+ConnectionUrl=jdbc\:mysql\://localhost\:3306/bunsekiya_db
+DriverClass=com.mysql.jdbc.Driver
+DriverPath=/Users/nakaihiroki/Documents/workspace/bunsekiya/lib/mysql-connector-java-5.1.22-bin.jar|
+Pass=OmanaOmana\!\!
+User=pero2
+eclipse.preferences.version=1

@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+
+#subsite_ctnt li{
+	list-style-type : none;
+	padding-top: 10px;
+	margin-left: 20px;
+	font-size: 16px;
+}
+

@@ -1,0 +1,9 @@
+DaoType=S2JDBC
+DefaultResourcePath=/bunsekiya/src/main/resources
+DefaultRootPackage=jp.co.omana
+DefaultSrcPath=/bunsekiya/src/main/java
+ServletPath=/bunsekiya
+ViewType=SA-Struts
+WebContentsRoot=src/main/webapp/
+eclipse.preferences.version=1
+prefs.children=jdbc.dicon,

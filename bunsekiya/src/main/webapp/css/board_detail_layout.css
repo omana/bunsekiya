@@ -1,0 +1,29 @@
+.kawara_ctnt{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.kawara_ctnt h3{
+	padding-top: 10px;
+}
+
+.question_ctnt{
+	margin-top:10px;
+	padding-bottom: 10px;
+	border-bottom: 1px dotted #000000;
+	border-top: 1px dotted #000000;
+}
+
+.question_rply{
+	margin-top:10px;
+	padding-bottom: 10px;
+	border-bottom: 1px dotted #000000;
+	
+}
+
+.text_form{
+	height: 25px;
+}
+#more_inquery{
+font-size :14px;
+}

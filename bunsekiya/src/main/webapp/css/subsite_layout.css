@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+#subsite_logo{
+	margin-left: 30px;
+}
+
+#line_list{
+	margin-top: 30px;
+}
+
+#subsite_ctnt{
+	background-image: url(20121017img_layout/byoubu_sub.png);
+	min-height: 700px;
+	overflow: hideen;
+}
+
+#subsite_ctnt p{
+	padding-top: 10px;
+	padding-left: 20px;
+	
+}
+
+.subtext{
+	font-size: 14px;
+}
+
