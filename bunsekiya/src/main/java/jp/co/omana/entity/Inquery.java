@@ -17,7 +17,6 @@ public class Inquery implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    
     /** inqueryIdプロパティ */
     @Id
     @Column(precision = 10, nullable = false, unique = true)
