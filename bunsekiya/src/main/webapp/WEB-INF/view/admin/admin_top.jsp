@@ -31,16 +31,13 @@
 						<div class="admin_inquery_ctnt">
 							<s:form action="dispBoard" method="post">
 								<p>
-									名前 ${bb.rWriter} 様
+									名前: ${bb.rWriter} 様
 								</p>
 								<p>
-									アドレス ${bb.rAddress}
+									アドレス: ${bb.rAddress}
 								</p>
 								<p>
-									問い合わせ項目 ${bb.tblBb.tTitle}
-								</p>
-								<p>
-									問い合わせ内容 ${bb.rContext}
+									問い合わせ内容: ${bb.rContext}
 								</p>
 								<p>
 									<html:radio property="disp" value="1">掲載OK</html:radio>

@@ -33,12 +33,15 @@
 							<p>お名前(必須)<br/><html:text property="name"   size="60" styleClass="text_form" value="${f:h(boardDto.name)}"/></p>
 							<p>メールアドレス<br/><html:text property="address" size="60" styleClass="text_form"  value="${f:h(boardDto.address)}" /></p>
 							<p>内容(400文字以内）<br/>
-								<textarea name = "boardText"  rows="20" cols="50" >
-								 <c:if test="${boardDto.boardText!='hogehoge'}">
-                                        こちらに内容をご記入下さい
-                                    </c:if>
-                                    ${f:h(boardDto.boardText)}
-								</textarea></p>
+								<c:choose>
+                                    <c:when test="${empty boardDto.boardText}">
+										<textarea name="boardText" rows="20" cols="50" >こちらに内容をご記入下さい。</textarea>
+                                    </c:when>
+                                    <c:otherwise>
+										<textarea name = "boardText"  rows="20" cols="50" >${f:h(inqueryDto.inqueryText)}</textarea>
+								    </c:otherwise>
+								</c:choose>
+								</p>
 							<div id="inquerysbmt">
 								<p><s:link href="../sitepolicy"  target="_blank">個人情報の取り扱い</s:link>に同意の上、<br>
 								<input type="image" src="${f:url('/ctnt_img/inquery_btr.png')}"  alt="かわら版に書き込む"></p>

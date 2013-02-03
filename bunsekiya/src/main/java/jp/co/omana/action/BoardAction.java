@@ -100,6 +100,7 @@ public class BoardAction {
                 boardDto.threadId = boardForm.threadId;
                 boardDto.name = boardForm.name;
                 boardDto.address = boardForm.address;
+                boardDto.boardKind = "不要";
                 tblBb = tblBbService.findById(threadId);
                 boardDto.title = tblBb.TTitle;
                 boardDto.boardKind = tblBb.TCat;
@@ -133,7 +134,7 @@ public class BoardAction {
             String now = dateformat.format(date);
 
             tblBb.threadId = maxThreadId;
-            tblBb.TCat = boardDto.boardKind;
+            tblBb.TCat = "不要";
             tblBb.TTitle = boardDto.title;
             tblBb.TDate = now;
             tblBb.TAdminFlg = 0;
