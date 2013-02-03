@@ -863,7 +863,7 @@ static {
         _jspx_th_html_005foption_005f3.doInitBody();
       }
       do {
-        out.write("その他問い合わせ");
+        out.write("その他お問い合わせ");
         int evalDoAfterBody = _jspx_th_html_005foption_005f3.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;

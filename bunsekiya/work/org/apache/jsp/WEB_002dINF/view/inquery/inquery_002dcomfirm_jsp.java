@@ -245,7 +245,7 @@ static {
         out.write("\r\n");
         out.write("\t\t\t\t\t\t\t\t</div>\r\n");
         out.write("\t\t\t\t\t\t\t\t<div class=\"cnfrm_txt\">\r\n");
-        out.write("\t\t\t\t\t\t\t\t\t<p>フリガナ<br/>");
+        out.write("\t\t\t\t\t\t\t\t\t<p>フリガナ(必須)<br/>");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${f:h(inqueryDto.kanaMyoji)}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_1, false));
         out.write(" 様</p>\r\n");
         out.write("\t\t\t\t\t\t\t\t\t");
