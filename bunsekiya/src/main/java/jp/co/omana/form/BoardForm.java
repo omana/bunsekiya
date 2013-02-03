@@ -15,15 +15,10 @@ public class BoardForm {
     public String name = "";
 
 
-    @Required
     @Maxlength(maxlength = 200)
     @EmailType
     public String address= "";
 
-
-    @Required
-    @Maxlength(maxlength = 20)
-    public String boardKind= "";
 
 
     @Required

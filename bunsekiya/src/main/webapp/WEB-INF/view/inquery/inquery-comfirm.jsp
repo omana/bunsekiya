@@ -30,11 +30,11 @@
 						<div id="rgst_cnfrm">
 							<form action="send" method="post">
 								<div class="cnfrm_txt">
-									<p>お名前<br/>${f:h(inqueryDto.nameMyoji)} 様</p>
+									<p>お名前(必須)<br/>${f:h(inqueryDto.nameMyoji)} 様</p>
 									<html:hidden property="nameMyoji" value="${f:h(inqueryDto.nameMyoji)} "/>
 								</div>
 								<div class="cnfrm_txt">
-									<p>フリガナ<br/>${f:h(inqueryDto.kanaMyoji)} 様</p>
+									<p>フリガナ(必須)<br/>${f:h(inqueryDto.kanaMyoji)} 様</p>
 									<html:hidden property="kanaMyoji" value="${f:h(inqueryDto.kanaMyoji)} "/>
 								</div>
 								<div class="cnfrm_txt">

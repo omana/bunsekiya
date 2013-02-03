@@ -32,13 +32,6 @@
 							<p>タイトル(必須)<br/><html:text property="title" size="60"  styleClass="text_form"  value="${f:h(boardDto.title)}" /></p>
 							<p>お名前(必須)<br/><html:text property="name"   size="60" styleClass="text_form" value="${f:h(boardDto.name)}"/></p>
 							<p>メールアドレス<br/><html:text property="address" size="60" styleClass="text_form"  value="${f:h(boardDto.address)}" /></p>
-							<p>問い合わせ種類(必須)<br/>
-				            <html:select property="boardKind" value="${f:h(boardDto.boardKind)}">
-								<html:option value="現状診断" >現状診断</html:option>
-								<html:option value="予測・シュミレーション" >予測・シュミレーション</html:option>
-								<html:option value="講習・講座" >講習・講座</html:option>
-								<html:option value="その他問い合わせ" >その他問い合わせ</html:option>
-							</html:select>
 							<p>内容(400文字以内）<br/>
 								<textarea name = "boardText"  rows="20" cols="50" >
 								 <c:if test="${boardDto.boardText!='hogehoge'}">

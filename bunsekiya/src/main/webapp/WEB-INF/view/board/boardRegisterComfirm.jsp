@@ -42,10 +42,6 @@
 									<html:hidden property="address" value="${f:h(boardDto.address)}"/>
 								</div>
 								<div class="cnfrm_txt">
-									<p>問い合わせ種類(必須)<br/>${f:h(boardDto.boardKind)}</p>
-									<html:hidden property="boardKind" value="${f:h(boardDto.boardKind)}"/>
-								</div>
-								<div class="cnfrm_txt">
 									<p>内容(400文字以内）<br/>
 										${f:h(boardDto.boardText)}
 									</p>

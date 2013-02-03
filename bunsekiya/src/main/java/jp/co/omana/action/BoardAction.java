@@ -84,7 +84,6 @@ public class BoardAction {
         boardDto.name = boardForm.name;
         boardDto.address = boardForm.address;
         boardDto.title = boardForm.title;
-        boardDto.boardKind = boardForm.boardKind;
         boardDto.boardText = boardForm.boardText;
         //Tokenの生成
         TokenProcessor.getInstance().saveToken(request);
@@ -124,7 +123,6 @@ public class BoardAction {
             boardDto.name = boardForm.name;
             boardDto.address = boardForm.address;
             boardDto.title = boardForm.title;
-            boardDto.boardKind = boardForm.boardKind;
             boardDto.boardText = boardForm.boardText;
 
             TblBb tblBb = new TblBb();
@@ -167,7 +165,6 @@ public class BoardAction {
             boardDto.name = boardForm.name;
             boardDto.address = boardForm.address;
             boardDto.title = boardForm.title;
-            boardDto.boardKind = boardForm.boardKind;
             boardDto.boardText = boardForm.boardText;
             int id = IntegerConversionUtil.toInteger(boardForm.threadId);
 
