@@ -5,7 +5,6 @@ import org.seasar.extension.jdbc.name.PropertyName;
 
 /**
  * {@link Inquery}のプロパティ名の集合です。
- * 
  */
 @Generated(value = {"S2JDBC-Gen 2.4.45", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2012/11/20 1:07:34")
 public class InqueryNames {
