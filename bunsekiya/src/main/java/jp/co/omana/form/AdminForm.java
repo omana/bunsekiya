@@ -1,5 +1,7 @@
 package jp.co.omana.form;
 
+import org.seasar.struts.annotation.EmailType;
+import org.seasar.struts.annotation.IntegerType;
 import org.seasar.struts.annotation.Required;
 
 
@@ -29,4 +31,20 @@ public class AdminForm {
     @Required
     public String recNum = "";
 
+    @Required
+    @IntegerType
+    public String infoDateY = "";
+
+    @Required
+    @IntegerType
+    public String infoDateM = "";
+
+    @Required
+    @EmailType
+    public String infoDateD = "";
+    
+    @Required
+    public String infoContent = "";
+    
+    
 }

@@ -7,7 +7,7 @@ import org.seasar.extension.jdbc.name.PropertyName;
  * {@link Rec}のプロパティ名の集合です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.45", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2012/11/20 1:07:34")
+@Generated(value = {"S2JDBC-Gen 2.4.45", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2013/07/14 19:28:22")
 public class RecNames {
 
     /**

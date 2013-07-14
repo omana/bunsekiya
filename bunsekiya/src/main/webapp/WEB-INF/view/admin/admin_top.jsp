@@ -26,6 +26,43 @@
 							</p>
 						</s:form>
 						<hr>
+                    <h2>新着情報用入稿</h2>
+                        <s:form action="newInfo" method="post">
+                            <p>
+                                <p><html:errors/></p>
+                                <c:out value="更新日"></c:out>
+                                <br>
+                                <html:select property="infoDateY" value="2013"> property="infoDate">
+                                    <html:option value="2012"></html:option>
+                                    <html:option value="2013" ></html:option>
+                                    <html:option value="2014"></html:option>
+                                    <html:option value="2015"></html:option>
+                                    <html:option value="2016"></html:option>
+                                    <html:option value="2017"></html:option>
+                                    <html:option value="2018"></html:option>
+                                    <html:option value="2019"></html:option>
+                                    <html:option value="2020"></html:option>
+                                </html:select>
+                                <html:select property="infoDateM"> property="infoDate">
+                                    <c:forEach var="i" end="12" step="1" begin="1">
+                                    <html:option value="${i}"></html:option>
+                                    </c:forEach>
+                                </html:select>月
+                                <html:select property="infoDateD"> property="infoDate">
+                                    <c:forEach var="i" end="31" step="1" begin="1">
+                                    <html:option value="${i}"></html:option>
+                                    </c:forEach>
+                                </html:select>日
+                                </br>
+                                <c:out value="新着情報"></c:out>
+                                </br>
+                                <html:textarea property="infoContent" rows="5" cols="70"></html:textarea>
+                                </br>
+                                <s:submit property="newInfo" value="送信" />
+                            </p>
+                        </s:form>
+                        <hr>
+                        
 					<h2>かわら版一覧</h2>
 					    <c:forEach var="bb" items="${tblResList}" varStatus="index">
 						<div class="admin_inquery_ctnt">
@@ -61,7 +98,6 @@
                                  返信内容
                                  </p>
                                 <p>
-                                   <html:textarea property="text" value="ここに返信内容を書いてください。"  rows="10" cols="50"></html:textarea>
                                    <html:hidden property="thireadId" value="${bb.threadId}"/>
                                    <html:hidden property="resID" value="${bb.resId}"/>
                                 </p>

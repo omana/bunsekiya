@@ -4,56 +4,6 @@
 <components namespace="jdbc">
 	<include path="jta.dicon"/>
 
-	<!-- for HSQLDB -->
-	<!--
-	<component name="xaDataSource"
-		class="org.seasar.extension.dbcp.impl.XADataSourceImpl">
-		<property name="driverClassName">
-			"org.hsqldb.jdbcDriver"
-		</property>
-		<property name="URL">
-			"jdbc:hsqldb:file:"
-				+ @org.seasar.framework.util.ResourceUtil@getBuildDir('app.dicon').getCanonicalPath()
-				+ "/data/test"
-		</property>
-		<property name="user">"sa"</property>
-		<property name="password">""</property>
-	</component>
-	-->
-
-	<!-- for H2 -->
-	<!--
-	<component name="xaDataSource"
-		class="org.seasar.extension.dbcp.impl.XADataSourceImpl">
-		<property name="driverClassName">
-			"org.h2.Driver"
-		</property>
-		<property name="URL">
-			"jdbc:h2:tcp://localhost:9092/demo"
-		</property>
-		<property name="user">"sa"</property>
-		<property name="password">""</property>
-		<destroyMethod>
-			@org.seasar.framework.util.DriverManagerUtil@deregisterAllDrivers()
-		</destroyMethod>
-	</component>
-	-->
-
-	<!-- for Oracle -->
-	<!--
-	<component name="xaDataSource"
-		class="org.seasar.extension.dbcp.impl.XADataSourceImpl">
-		<property name="driverClassName">
-			"oracle.jdbc.driver.OracleDriver"
-		</property>
-		<property name="URL">
-			"jdbc:oracle:thin:@xxx:1521:xxx"
-		</property>
-		<property name="user">"xxx"</property>
-		<property name="password">"xxx"</property>
-	</component>
-	-->
-
 	<!-- for DB2 -->
 	<!--
 	<component name="xaDataSource"

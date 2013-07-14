@@ -28,11 +28,13 @@ import jp.co.omana.entity.Inquery;
 import jp.co.omana.entity.Rec;
 import jp.co.omana.entity.TblBb;
 import jp.co.omana.entity.TblRes;
+import jp.co.omana.entity.UpdateInfo;
 import jp.co.omana.form.AdminForm;
 import jp.co.omana.service.InqueryService;
 import jp.co.omana.service.RecService;
 import jp.co.omana.service.TblBbService;
 import jp.co.omana.service.TblResService;
+import jp.co.omana.service.UpdateInfoService;
 
 import org.seasar.framework.util.ByteConversionUtil;
 import org.seasar.framework.util.IntegerConversionUtil;
@@ -46,27 +48,24 @@ public class AdminAction {
     @Resource
     @ActionForm
     AdminForm adminForm = new AdminForm();
-
     @Resource
     TblResService tblResService = new TblResService();
-
     @Resource
     TblBbService tblBbService = new TblBbService();
-
     @Resource
     InqueryService inqueryService = new InqueryService();
-
     @Resource
     RecService recService = new RecService();
-
-
     @Resource
     AdminDto adminDto = new AdminDto();
-
+    @Resource
+    UpdateInfoService updateInfoService =new UpdateInfoService();
+    
     @Resource
     public HttpServletRequest request;
-
-
+    
+    
+    
     public List<TblRes> tblResList = new ArrayList<TblRes>();
 
     public List<Inquery> inqueryList = new ArrayList<Inquery>();
@@ -169,6 +168,30 @@ public class AdminAction {
         return "admin_login.jsp";
     }
 
+    
+    /**
+     *新着情報の入稿の表示制御
+     * @return
+     */
+    @Execute(validator = false)
+    public String newInfo() {
+    	if (adminDto.userName.equals(id)){
+    		UpdateInfo updateInfo = new UpdateInfo();
+
+    		if (!adminForm.infoContent.equals("")){
+    			updateInfo.infoContext = adminForm.infoContent;
+    			updateInfo.yyyymmdd = adminForm.infoDateY+"/"
+    					+ adminForm.infoDateM+"/"
+    					+ adminForm.infoDateD;
+
+    			updateInfoService.insert(updateInfo);
+    		}
+    		return top();
+    	}
+    	return "admin_login.jsp";
+    }
+
+    
 
     /**
      * からわ版の返信

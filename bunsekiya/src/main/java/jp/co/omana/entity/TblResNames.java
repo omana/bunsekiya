@@ -1,13 +1,14 @@
 package jp.co.omana.entity;
 
 import javax.annotation.Generated;
+import jp.co.omana.entity.TblBbNames._TblBbNames;
 import org.seasar.extension.jdbc.name.PropertyName;
 
 /**
  * {@link TblRes}のプロパティ名の集合です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.45", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2012/11/20 1:07:34")
+@Generated(value = {"S2JDBC-Gen 2.4.45", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2013/07/14 19:28:22")
 public class TblResNames {
 
     /**
@@ -71,6 +72,15 @@ public class TblResNames {
      */
     public static PropertyName<Byte> RAllowFlg() {
         return new PropertyName<Byte>("RAllowFlg");
+    }
+
+    /**
+     * tblBbのプロパティ名を返します。
+     * 
+     * @return tblBbのプロパティ名
+     */
+    public static _TblBbNames tblBb() {
+        return new _TblBbNames("tblBb");
     }
 
     /**
@@ -167,6 +177,15 @@ public class TblResNames {
          */
         public PropertyName<Byte> RAllowFlg() {
             return new PropertyName<Byte>(this, "RAllowFlg");
+        }
+
+        /**
+         * tblBbのプロパティ名を返します。
+         * 
+         * @return tblBbのプロパティ名
+         */
+        public _TblBbNames tblBb() {
+            return new _TblBbNames(this, "tblBb");
         }
     }
 }

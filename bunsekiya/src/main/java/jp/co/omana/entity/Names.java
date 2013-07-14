@@ -5,12 +5,13 @@ import jp.co.omana.entity.InqueryNames._InqueryNames;
 import jp.co.omana.entity.RecNames._RecNames;
 import jp.co.omana.entity.TblBbNames._TblBbNames;
 import jp.co.omana.entity.TblResNames._TblResNames;
+import jp.co.omana.entity.UpdateInfoNames._UpdateInfoNames;
 
 /**
  * 名前クラスの集約です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.45", "org.seasar.extension.jdbc.gen.internal.model.NamesAggregateModelFactoryImpl"}, date = "2012/11/20 1:07:34")
+@Generated(value = {"S2JDBC-Gen 2.4.45", "org.seasar.extension.jdbc.gen.internal.model.NamesAggregateModelFactoryImpl"}, date = "2013/07/14 19:28:22")
 public class Names {
 
     /**
@@ -47,5 +48,14 @@ public class Names {
      */
     public static _TblResNames tblRes() {
         return new _TblResNames();
+    }
+
+    /**
+     * {@link UpdateInfo}の名前クラスを返します。
+     * 
+     * @return UpdateInfoの名前クラス
+     */
+    public static _UpdateInfoNames updateInfo() {
+        return new _UpdateInfoNames();
     }
 }
