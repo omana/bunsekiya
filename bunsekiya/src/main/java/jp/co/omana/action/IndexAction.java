@@ -24,8 +24,10 @@ import javax.annotation.Resource;
 
 import jp.co.omana.entity.Rec;
 import jp.co.omana.entity.TblBb;
+import jp.co.omana.entity.UpdateInfo;
 import jp.co.omana.service.RecService;
 import jp.co.omana.service.TblBbService;
+import jp.co.omana.service.UpdateInfoService;
 
 import org.seasar.framework.util.IntegerConversionUtil;
 import org.seasar.struts.annotation.Execute;
@@ -39,10 +41,15 @@ public class IndexAction {
     @Resource
     RecService recService = new RecService();
 
+    @Resource
+    UpdateInfoService updateInfoService = new UpdateInfoService();
+    
     public Rec rec = new Rec();
 
     public List<TblBb> tblBbList = new ArrayList<TblBb>();
 
+    public List<UpdateInfo> updateInfoList = new ArrayList<UpdateInfo>();
+    
     @Execute(validator = false)
 	public String index() {
         Date date = new Date();
@@ -59,6 +66,8 @@ public class IndexAction {
 
         tblBbList = tblBbService.findAllowedOrderByDate();
 
+        updateInfoList = updateInfoService.findAllOrderById();
+        
         return "index.jsp";
 	}
 

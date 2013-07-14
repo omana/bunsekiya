@@ -170,25 +170,23 @@ public class AdminAction {
 
     
     /**
-     *新着情報の入稿の表示制御
+     *新着情報の入稿
      * @return
      */
     @Execute(validator = false)
     public String newInfo() {
-    	if (adminDto.userName.equals(id)){
-    		UpdateInfo updateInfo = new UpdateInfo();
+    	UpdateInfo updateInfo = new UpdateInfo();
 
-    		if (!adminForm.infoContent.equals("")){
-    			updateInfo.infoContext = adminForm.infoContent;
-    			updateInfo.yyyymmdd = adminForm.infoDateY+"/"
-    					+ adminForm.infoDateM+"/"
-    					+ adminForm.infoDateD;
+    	if (!adminForm.infoContent.equals("")){
+    		updateInfo.infoContext = adminForm.infoContent;
+    		updateInfo.yyyymmdd = adminForm.infoDateY+"/"
+    				+ adminForm.infoDateM+"/"
+    				+ adminForm.infoDateD;
 
-    			updateInfoService.insert(updateInfo);
-    		}
-    		return top();
+
+    		updateInfoService.insert(updateInfo);
     	}
-    	return "admin_login.jsp";
+    	return top();
     }
 
     

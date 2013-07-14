@@ -29,7 +29,7 @@
                     <h2>新着情報用入稿</h2>
                         <s:form action="newInfo" method="post">
                             <p>
-                                <p><html:errors/></p>
+                                <p><html:errors/></p
                                 <c:out value="更新日"></c:out>
                                 <br>
                                 <html:select property="infoDateY" value="2013"> property="infoDate">

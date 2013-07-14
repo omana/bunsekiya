@@ -38,8 +38,10 @@
 					<div id="newInfomation">
 						<h2><img src="${f:url('/ctnt_img/news.png')}" alt="新着情報"></h2>
 						<div id="newscntnt">
-							<p>2012/10/17　弊社の分析屋である吉永がadtech-tokyoで公演を行いました。</p>
-							<p>2012/10/17　サイトをオープンしました。</p>						</div>
+						<c:forEach var="updateinfo" items="${updateInfoList}">
+                                <p>${f:h(updateinfo.yyyymmdd)}${f:h(updateinfo.infoContext)}</p>
+                        </c:forEach>
+						</div>
 					</div>
 					<div id="qtlist">
 						<h2><img src="${f:url('/ctnt_img/bbs_large.png')}" alt="かわら版の質問一覧"></h2>
