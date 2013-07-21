@@ -45,232 +45,247 @@ import org.seasar.struts.annotation.Execute;
 
 public class AdminAction {
 
-    @Resource
-    @ActionForm
-    AdminForm adminForm = new AdminForm();
-    @Resource
-    TblResService tblResService = new TblResService();
-    @Resource
-    TblBbService tblBbService = new TblBbService();
-    @Resource
-    InqueryService inqueryService = new InqueryService();
-    @Resource
-    RecService recService = new RecService();
-    @Resource
-    AdminDto adminDto = new AdminDto();
-    @Resource
-    UpdateInfoService updateInfoService =new UpdateInfoService();
-    
-    @Resource
-    public HttpServletRequest request;
-    
-    
-    
-    public List<TblRes> tblResList = new ArrayList<TblRes>();
+	@Resource
+	@ActionForm
+	AdminForm adminForm = new AdminForm();
+	@Resource
+	TblResService tblResService = new TblResService();
+	@Resource
+	TblBbService tblBbService = new TblBbService();
+	@Resource
+	InqueryService inqueryService = new InqueryService();
+	@Resource
+	RecService recService = new RecService();
+	@Resource
+	AdminDto adminDto = new AdminDto();
+	@Resource
+	UpdateInfoService updateInfoService =new UpdateInfoService();
 
-    public List<Inquery> inqueryList = new ArrayList<Inquery>();
+	@Resource
+	public HttpServletRequest request;
 
 
-    private int threadId = 0;
-    private int resId = 0;
 
-    private String rWriter ="";
+	public List<TblRes> tblResList = new ArrayList<TblRes>();
 
-    public Rec rec = new Rec();
-    public Rec recInsert = new Rec();
+	public List<Inquery> inqueryList = new ArrayList<Inquery>();
+	public List<UpdateInfo> updateInfoList = new ArrayList<UpdateInfo>();
 
-    private String id = "SUUMOBunsekiya2012";
-    private String password = "bunsekiyaYoshinaga";
+	private int threadId = 0;
+	private int resId = 0;
 
-    /**
-     * ログインフォームの表示
-     * @return
-     */
-    @Execute(validator = false)
-    public String index() {
+	private String rWriter ="";
 
-        return "admin_login.jsp";
-    }
+	public Rec rec = new Rec();
+	public Rec recInsert = new Rec();
 
-    /**
-     *ログイン処理
-     * @return
-     */
-    @Execute(validator = false)
-    public String login() {
-        String userName = adminForm.userId;
-        String passwd = adminForm.passwd;
+	private String id = "SUUMOBunsekiya2012";
+	private String password = "bunsekiyaYoshinaga";
 
-        if(userName.equals(id)&&passwd.equals(password)){
-            adminDto.userName =userName;
-            adminDto.passwd = passwd;
-            return top();
-        } else {
-            return "admin_login.jsp";
-        }
-    }
+	/**
+	 * ログインフォームの表示
+	 * @return
+	 */
+	@Execute(validator = false)
+	public String index() {
 
-    /**
-     * 管理者機能の表示
-     * @return
-     */
-    @Execute(validator = false)
-    public String top() {
-        if (adminDto.userName.equals(id)){
-            tblResList = tblResService.findAllByNotAllowed();
-            inqueryList = inqueryService.findAll();
+		return "admin_login.jsp";
+	}
 
-            Date date = new Date();
-            SimpleDateFormat dateformat = new SimpleDateFormat("MM");
-            String month = dateformat.format(date);
+	/**
+	 *ログイン処理
+	 * @return
+	 */
+	@Execute(validator = false)
+	public String login() {
+		String userName = adminForm.userId;
+		String passwd = adminForm.passwd;
 
-            int monthNum = IntegerConversionUtil.toPrimitiveInt(month);
+		if(userName.equals(id)&&passwd.equals(password)){
+			adminDto.userName =userName;
+			adminDto.passwd = passwd;
+			return top();
+		} else {
+			return "admin_login.jsp";
+		}
+	}
 
-            rec = recService.findById(monthNum);
+	/**
+	 * 管理者機能の表示
+	 * @return
+	 */
+	@Execute(validator = false)
+	public String top() {
+		if (adminDto.userName.equals(id)){
+			tblResList = tblResService.findAllByNotAllowed();
+			inqueryList = inqueryService.findAll();
+			updateInfoList = updateInfoService.findAllOrderById();
 
-            if(rec == null){
-                rec = new Rec();
-                rec.recTime = 0;
-            }
+			Date date = new Date();
+			SimpleDateFormat dateformat = new SimpleDateFormat("MM");
+			String month = dateformat.format(date);
 
-            return "admin_top.jsp";
-        }
-        return "admin_login.jsp";
-    }
+			int monthNum = IntegerConversionUtil.toPrimitiveInt(month);
 
-    /**
-     *かわら版の表示制御
-     * @return
-     */
-    @Execute(validator = false)
-    public String dispBoard() {
-        if (adminDto.userName.equals(id)){
-            TblBb tblBb = new TblBb();
-            TblRes tblRes = new TblRes();
+			rec = recService.findById(monthNum);
 
-            byte allowed = ByteConversionUtil.toByte(adminForm.disp);
-            threadId = IntegerConversionUtil.toInteger(adminForm.threadId);
-            resId = IntegerConversionUtil.toInteger(adminForm.resId);
+			if(rec == null){
+				rec = new Rec();
+				rec.recTime = 0;
+			}
 
+			return "admin_top.jsp";
+		}
+		return "admin_login.jsp";
+	}
 
-            tblBb = tblBbService.findById(threadId);
-            tblRes = tblResService.findById(threadId, resId);
+	/**
+	 *かわら版の表示制御
+	 * @return
+	 */
+	@Execute(validator = false)
+	public String dispBoard() {
+		if (adminDto.userName.equals(id)){
+			TblBb tblBb = new TblBb();
+			TblRes tblRes = new TblRes();
 
-            tblBb.TAdminFlg = allowed;
-            tblBbService.update(tblBb);
-
-            tblRes.RAllowFlg = allowed;
-            tblResService.update(tblRes);
+			byte allowed = ByteConversionUtil.toByte(adminForm.disp);
+			threadId = IntegerConversionUtil.toInteger(adminForm.threadId);
+			resId = IntegerConversionUtil.toInteger(adminForm.resId);
 
 
-            return top();
-        }
-        return "admin_login.jsp";
-    }
+			tblBb = tblBbService.findById(threadId);
+			tblRes = tblResService.findById(threadId, resId);
 
-    
-    /**
-     *新着情報の入稿
-     * @return
-     */
-    @Execute(validator = false)
-    public String newInfo() {
-    	UpdateInfo updateInfo = new UpdateInfo();
+			tblBb.TAdminFlg = allowed;
+			tblBbService.update(tblBb);
 
-    	if (!adminForm.infoContent.equals("")){
-    		updateInfo.infoContext = adminForm.infoContent;
-    		updateInfo.yyyymmdd = adminForm.infoDateY+"/"
-    				+ adminForm.infoDateM+"/"
-    				+ adminForm.infoDateD;
+			tblRes.RAllowFlg = allowed;
+			tblResService.update(tblRes);
 
 
-    		updateInfoService.insert(updateInfo);
-    	}
-    	return top();
-    }
+			return top();
+		}
+		return "admin_login.jsp";
+	}
 
-    
 
-    /**
-     * からわ版の返信
-     * @return
-     */
-    @Execute(validator = false,urlPattern ="reply/{threadId}/{resId}")
-    public String reply(){
-        if (adminDto.userName.equals(id)){
-            //        //Tokenの生成
-            //        TokenProcessor.getInstance().saveToken(request);
-            //
-            //        if (TokenProcessor.getInstance().isTokenValid(request, true)) {
-            TblRes tblRes = new TblRes();
+	/**
+	 *新着情報の入稿
+	 * @return
+	 */
+	@Execute(validator = false)
+	public String newInfo() {
+		UpdateInfo updateInfo = new UpdateInfo();
 
-            threadId = IntegerConversionUtil.toPrimitiveInt(adminForm.threadId);
-            resId = IntegerConversionUtil.toPrimitiveInt(adminForm.resId);
-            rWriter = adminForm.name;
+		if (!adminForm.infoContent.equals("")){
+			updateInfo.infoContext = adminForm.infoContent;
+			updateInfo.yyyymmdd = adminForm.infoDateY+"/"
+					+ adminForm.infoDateM+"/"
+					+ adminForm.infoDateD;
 
-            String relpy = adminForm.text;
 
-            Date date = new Date();
-            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-            String now = dateformat.format(date);
+			updateInfoService.insert(updateInfo);
+		}
+		return top();
+	}
+	/**
+	 *新着情報の削除
+	 * @return
+	 */
+	@Execute(validator = false)
+	public String newInfoDel() {
+		UpdateInfo updateInfo = new UpdateInfo();
+		int updateNum = IntegerConversionUtil.toInteger(adminForm.infoNum);
+		try {
+			updateInfo = updateInfoService.findById(updateNum);
+			updateInfoService.delete(updateInfo);
+		} catch (NullPointerException nulle) {
+		}
+		return top();
+	}
 
-            int maxResId = tblResService.findMaxResId(threadId);
 
-            tblRes.threadId = threadId;
-            tblRes.resId = maxResId + 1;
-            tblRes.RAddress = "管理人アドレス";
-            tblRes.RAllowFlg = 1;
-            tblRes.RDate = now;
-            tblRes.RWriter = rWriter;
-            tblRes.RContext = relpy;
+	/**
+	 * からわ版の返信
+	 * @return
+	 */
+	@Execute(validator = false,urlPattern ="reply/{threadId}/{resId}")
+	public String reply(){
+		if (adminDto.userName.equals(id)){
+			//        //Tokenの生成
+			//        TokenProcessor.getInstance().saveToken(request);
+			//
+			//        if (TokenProcessor.getInstance().isTokenValid(request, true)) {
+			TblRes tblRes = new TblRes();
 
-            tblResService.insert(tblRes);
+			threadId = IntegerConversionUtil.toPrimitiveInt(adminForm.threadId);
+			resId = IntegerConversionUtil.toPrimitiveInt(adminForm.resId);
+			rWriter = adminForm.name;
 
-            return top();
-        }
-        return "admin_login.jsp";
-    }
+			String relpy = adminForm.text;
 
-    /**
-     * 請負数の変更
-     * @return
-     */
-    @Execute(validator = false)
-    public String recUpdate(){
-        if (adminDto.userName.equals(id)){
-            Date date = new Date();
-            SimpleDateFormat dateformat = new SimpleDateFormat("MM");
-            String month = dateformat.format(date);
+			Date date = new Date();
+			SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+			String now = dateformat.format(date);
 
-            int monthNum = IntegerConversionUtil.toPrimitiveInt(month);
-            int rec_time = 0;
-            try {
-                rec_time = IntegerConversionUtil.toInteger(adminForm.recNum);
-            } catch (NullPointerException e) {
-                rec_time = 0;
-            }
+			int maxResId = tblResService.findMaxResId(threadId);
 
-            System.out.println("--------------------------------------------------------"+monthNum);
+			tblRes.threadId = threadId;
+			tblRes.resId = maxResId + 1;
+			tblRes.RAddress = "管理人アドレス";
+			tblRes.RAllowFlg = 1;
+			tblRes.RDate = now;
+			tblRes.RWriter = rWriter;
+			tblRes.RContext = relpy;
 
-            Rec rec = new Rec();
-            Rec recInsert = new Rec();
-            rec = recService.findById(monthNum);
+			tblResService.insert(tblRes);
 
-            if(rec == null){
-                recInsert.recId = monthNum;
-                recInsert.recDate = month;
-                recInsert.recTime = rec_time;
-                recService.insert(recInsert);
-            } else if (rec.recId == monthNum) {
-                rec.recDate = month;
-                rec.recTime = rec_time;
-                recService.update(rec);
-            }
+			return top();
+		}
+		return "admin_login.jsp";
+	}
 
-            return top();
-        }
-        return "admin_login.jsp";
-    }
+	/**
+	 * 請負数の変更
+	 * @return
+	 */
+	@Execute(validator = false)
+	public String recUpdate(){
+		if (adminDto.userName.equals(id)){
+			Date date = new Date();
+			SimpleDateFormat dateformat = new SimpleDateFormat("MM");
+			String month = dateformat.format(date);
+
+			int monthNum = IntegerConversionUtil.toPrimitiveInt(month);
+			int rec_time = 0;
+			try {
+				rec_time = IntegerConversionUtil.toInteger(adminForm.recNum);
+			} catch (NullPointerException e) {
+				rec_time = 0;
+			}
+
+			System.out.println("--------------------------------------------------------"+monthNum);
+
+			Rec rec = new Rec();
+			Rec recInsert = new Rec();
+			rec = recService.findById(monthNum);
+
+			if(rec == null){
+				recInsert.recId = monthNum;
+				recInsert.recDate = month;
+				recInsert.recTime = rec_time;
+				recService.insert(recInsert);
+			} else if (rec.recId == monthNum) {
+				rec.recDate = month;
+				rec.recTime = rec_time;
+				recService.update(rec);
+			}
+
+			return top();
+		}
+		return "admin_login.jsp";
+	}
 
 
 

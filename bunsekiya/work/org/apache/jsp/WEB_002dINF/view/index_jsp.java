@@ -526,8 +526,6 @@ static {
           out.write("\r\n");
           out.write("                                <p>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${f:h(updateinfo.yyyymmdd)}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_1, false));
-          out.write(' ');
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${f:h(\"  \")}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_1, false));
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${f:h(updateinfo.infoContext)}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_1, false));
           out.write("</p>\r\n");
           out.write("                        ");

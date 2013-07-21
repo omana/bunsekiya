@@ -45,6 +45,8 @@ public class AdminForm {
     
     @Required
     public String infoContent = "";
-    
+
+    @Required
+    public String infoNum = "";
     
 }

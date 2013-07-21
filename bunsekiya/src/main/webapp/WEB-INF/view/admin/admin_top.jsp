@@ -27,9 +27,26 @@
 						</s:form>
 						<hr>
                     <h2>新着情報用入稿</h2>
+                        <s:form action="newInfoDel" method="post">
+                            <p>
+                                <p><html:errors/></p>
+                                <p>新着情報の管理</p>
+                                <html:select property="infoNum">
+                                <c:forEach var="updtlst" items="${updateInfoList}" varStatus="status">
+                                    <p> 
+                                    <html:option value="${updtlst.autoNum}">${updtlst.yyyymmdd} ${updtlst.infoContext}</html:option>
+                                    </p>
+                                 </c:forEach>
+                                 </html:select>
+                                 </br>
+                                 <html:submit property="newInfoDel" value="選択内容を削除"></html:submit>
+                        </s:form>
+                        
+                        </br>
                         <s:form action="newInfo" method="post">
                             <p>
-                                <p><html:errors/></p
+                                <p><html:errors/></p>
+                                <p>新着情報の入稿</p>
                                 <c:out value="更新日"></c:out>
                                 <br>
                                 <html:select property="infoDateY" value="2013"> property="infoDate">
